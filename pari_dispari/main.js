@@ -15,9 +15,9 @@ function genericNumber(min, max) {
 // 5. Creo una funzione per stabilire se il numero è pari
 function isEven(number) {
     if (number % 2 === 0) {
-        return true;
+        return "pari";
     }
-    return false;
+    return "dispari";
 }
 
 /*-----------
@@ -26,7 +26,7 @@ function isEven(number) {
 // 1. Chiedo all'utente di scegliere tra pari e dispari
 let userChoice;
 do {
-    userChoice = prompt("Scegli fra pari e dispari"); 
+    userChoice = prompt("Scegli fra pari e dispari").toLowerCase(); 
 } while (userChoice !== "pari" && userChoice !== "dispari");
 
 // 2. Chiedo all'utente di inserire un numero tra 1 e 5
@@ -40,16 +40,10 @@ const sum = userNumber + genericNumber(1, 5);
 console.log(sum);
 
 // 6. Dichiaro con un alert chi ha vinto
-if (isEven(sum)) {
-    if (userChoice === "pari") {
-        alert("L'utente ha vinto");
-    } else {
-        alert("Il computer ha vinto");
-    }
+const result = isEven(sum);
+
+if(result === userChoice) {
+    alert("Hai vinto!");
 } else {
-    if (userChoice === "dispari") {
-        alert("L'utente ha vinto");
-    } else {
-        alert("Il computer ha vinto");
-    }
+    alert("Hai perso!");
 }
