@@ -7,7 +7,7 @@
 /*---------------
     FUNCTION
 ---------------*/
-// 3. Creo una funzione per generare un numero random tra 1 e max
+// 3. Creo una funzione per generare un numero random tra min e max
 function genericNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -24,10 +24,16 @@ function isEven(number) {
     MAIN
 -----------*/
 // 1. Chiedo all'utente di scegliere tra pari e dispari
-const userChoice = prompt("Scegli fra pari e dispari"); 
+let userChoice;
+do {
+    userChoice = prompt("Scegli fra pari e dispari"); 
+} while (userChoice !== "pari" && userChoice !== "dispari");
 
 // 2. Chiedo all'utente di inserire un numero tra 1 e 5
-const userNumber = Number(prompt("Inserisci un numero tra 1 e 5"));
+let userNumber;
+do {
+    userNumber = Number(prompt("Inserisci un numero tra 1 e 5")); 
+} while (isNaN(userNumber) || userNumber < 1 || userNumber > 5);
 
 // 4. Sommo il numero scelto e il numero random
 const sum = userNumber + genericNumber(1, 5);
